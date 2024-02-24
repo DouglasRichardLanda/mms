@@ -13,7 +13,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={cn(inter.className, `flex flex-col justify-between`)}>
+      <body className={cn(inter.className, `flex flex-col justify-between overflow-x-hidden`)}>
         <NavBar />
         <SideBar />
         <div className={`mt-16 mx-5 lg:mx-32 xl:mx-40`}>
