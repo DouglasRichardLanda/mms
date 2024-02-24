@@ -3,19 +3,28 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "deploy": "npm run build && rsync --exclude=.git -azP . ubuntu@18.157.220.180:/home/ubuntu/apps/mms",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-separator": "^1.0.3",
     "autoprefixer": "10.4.17",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
     "eslint": "8.56.0",
     "eslint-config-next": "14.1.0",
+    "framer-motion": "^11.0.3",
+    "lucide-react": "^0.312.0",
     "next": "14.1.0",
     "postcss": "8.4.33",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "tailwindcss": "3.4.1"
+    "react-icons": "^5.0.1",
+    "tailwind-merge": "^2.2.0",
+    "tailwindcss": "3.4.1",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
