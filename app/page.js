@@ -16,7 +16,7 @@ export default function Home() {
           initial={{ x: `-200%`,y: `100%`, opacity: 0 }}
           transition={{ delay: 1, duration: 0.5 }}
           animate={{ x: 0, y: 0,opacity: 1,}}
-          className={`absolute top-[50%] sm:right-[10%] object-cover sm:w-1/2`}
+          className={`absolute top-[44%] sm:right-[10%] object-cover sm:w-1/2`}
           src="/debut/outNow.png"
           alt="second picture"
         />
