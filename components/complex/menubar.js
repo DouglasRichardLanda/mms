@@ -4,18 +4,20 @@ import { FaXTwitter } from "react-icons/fa6";
 import { IoIosMail } from "react-icons/io";
 import Link from "next/link"
 function Menubar(props) {
+
+  const styleel1 = `w-5 h-5 hover:text-red-800 duration-300 hover:scale-125`
   return (
     <header className={`fixed top-0 w-full z-30 bg-black`}>
       <nav className={`flex mt-5 w-full justify-between items-center`}>
         <div className={`flex flex-col`}>
           <div className={`hidden lg:flex gap-1 ml-5 relative z-10`}>
-            <Link href={``}><FaFacebook className={`w-5 h-5 hover:text-red-800 duration-300 hover:scale-125`} /></Link>
-            <Link href={``}><FaXTwitter className={`w-5 h-5 hover:text-red-800 duration-300 hover:scale-125`} /></Link>
-            <Link href={``}><FaInstagram className={`w-5 h-5 hover:text-red-800 duration-300 hover:scale-125`} /></Link>
-            <Link href={``}><FaYoutube className={`w-5 h-5 hover:text-red-800 duration-300 hover:scale-125`} /></Link>
-            <Link href={``}><FaSpotify className={`w-5 h-5 hover:text-red-800 duration-300 hover:scale-125`} /></Link>
-            <Link href={``}><FaApple className={`w-5 h-5 hover:text-red-800 duration-300 hover:scale-125`} /></Link>
-            <Link href={``}><FaTiktok className={`w-5 h-5 hover:text-red-800 duration-300 hover:scale-125`} /></Link>
+            <Link href={``}><FaFacebook className={styleel1} /></Link>
+            <Link href={``}><FaXTwitter className={styleel1} /></Link>
+            <Link href={``}><FaInstagram className={styleel1} /></Link>
+            <Link href={``}><FaYoutube className={styleel1} /></Link>
+            <Link href={``}><FaSpotify className={styleel1} /></Link>
+            <Link href={``}><FaApple className={styleel1} /></Link>
+            <Link href={``}><FaTiktok className={styleel1} /></Link>
           </div>
           <img className={`hidden lg:block`} src="/logo2.png" alt=""/>
         </div>

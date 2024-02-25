@@ -18,7 +18,6 @@ export default function RootLayout({ children }) {
         <SideBar />
         <div className={`mt-16 mx-5 lg:mx-32 xl:mx-40`}>
           {children}
-
         </div>
         <Cookies />
         <Bottomline />

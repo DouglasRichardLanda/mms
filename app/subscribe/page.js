@@ -1,6 +1,5 @@
 import React from 'react';
-
-function Page(props) {
+function Page() {
   return (
     <div className={`flex justify-center items-center`}>
       <div className={`flex flex-col bg-[rgba(36,50,55,255)] w-full md:w-2/3`}>
