@@ -200,6 +200,10 @@ Except in jurisdictions where such provisions are restricted, in no event will m
 
             <span className={`text-lg`}>FOR UNITED STATES USERS - YOUR CALIFORNIA PRIVACY RIGHTS</span> <br/><br/>
             <p className={`tracking-wider`}>{`Beginning on January 1, 2020, the California Consumer Privacy Act 1798.100 (CCPA) permits our visitors who are California residents to know what personal data is being collected about them, know whether their personal data is sold or disclosed and to whom, say no to the sale of personal data, access their personal data, request a business to delete any personal information about a consumer collected from that consumer, and not be discriminated against for exercising their privacy rights. To make such a request, please contact us on our email privacy@madmansspirit.com`}</p> <br/>
+
+            <span className={`text-lg`}>FOR UNITED STATES USERS - YOUR CALIFORNIA PRIVACY RIGHTS</span> <br/><br/>
+            <p className={`tracking-wider`}>{`Beginning on January 1, 2020, the California Consumer Privacy Act 1798.100 (CCPA) permits our visitors who are California residents to know what personal data is being collected about them, know whether their personal data is sold or disclosed and to whom, say no to the sale of personal data, access their personal data, request a business to delete ane personal information about a consumer collected from that consumer, and not be discriminated against for exercising their privacy rights. To make such a request, please contact us on our email: privacy@madmansspirit.com`}</p> <br/>
+            <p className={`tracking-wider`}>{`© Mad Man's Spirit. All rights reserved. Web site created by S. MacConnich`}</p>
           </div>
         </div>
       </div>
