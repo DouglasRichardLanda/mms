@@ -6,6 +6,27 @@ import {cn} from "@/lib/utils";
 function Cookies(props) {
   const descripRef = useRef();
   const [cookiessettings, setCookiessettings] = useState(false);
+  const [funcCookies, setFuncCookies] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const storedState = localStorage.getItem('funcCookies');
+      return storedState !== null ? JSON.parse(storedState) : true;
+    }
+    return true;
+  });
+  const [performCookies, setPerformCookies] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const storedState = localStorage.getItem('performCookies');
+      return storedState !== null ? JSON.parse(storedState) : true;
+    }
+    return true;
+  });
+  const [personCookies, setPersonCookies] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const storedState = localStorage.getItem('personCookies');
+      return storedState !== null ? JSON.parse(storedState) : true;
+    }
+    return true;
+  });
   const [closed, setClosed] = useState(() => {
     if (typeof window !== 'undefined') {
       const storedState = localStorage.getItem('closed');
@@ -24,13 +45,28 @@ function Cookies(props) {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const storedState = localStorage.getItem('closed');
+      const storedFuncState = localStorage.getItem('funcCookies');
+      const storedPerformState = localStorage.getItem('performCookies');
+      const storedPersonState = localStorage.getItem('personCookies');
       if (storedState) {
         setClosed(JSON.parse(storedState));
+      }
+      if (storedFuncState) {
+        setFuncCookies(JSON.parse(storedFuncState))
+      }
+      if (storedPerformState) {
+        setPerformCookies(JSON.parse(storedPerformState))
+      }
+      if (storedPersonState) {
+        setPersonCookies(JSON.parse(storedPersonState))
       }
     }
   }, []);
   useEffect(() => {
     localStorage.setItem('closed', JSON.stringify(closed));
+    localStorage.setItem('funcCookies', JSON.stringify(funcCookies))
+    localStorage.setItem('personCookies', JSON.stringify(personCookies))
+    localStorage.setItem('performCookies', JSON.stringify(performCookies))
   }, [closed]);
   return (
     <>
@@ -68,20 +104,20 @@ function Cookies(props) {
         <span className={`text-lg`}>ESSENTIAL COOKIES</span> <br/><br/>
         <p className={`tracking-wider`}>These cookies are required secure the functionality of our website and for necessary activities like fraud protection. These cookies do not store
           any personally identifiable information and can’t be switched off.</p> <br/>
-        <span className={`text-lg`}>FUNCTIONAL COOKIES</span> <br/><br/>
+        <input onClick={() => setFuncCookies(!funcCookies)} type="checkbox" checked={funcCookies}/> <span className={`text-lg`}>FUNCTIONAL COOKIES</span> <br/><br/>
         <p className={`tracking-wider`}>
           These cookies enable the website to provide enhanced functionality and personalisation. They may be set by us or by third party providers whose
           services we have added to our pages. If you do not allow these cookies then, disable them, but be aware, that some or all of these services may
           not function properly.
         </p> <br/>
-        <span className={`text-lg`}>PERFORMANCE MEASURING COOKIES</span> <br/><br/>
+        <input onClick={() => setPerformCookies(!performCookies)} type="checkbox" checked={performCookies}/> <span className={`text-lg`}>PERFORMANCE MEASURING COOKIES</span> <br/><br/>
         <p className={`tracking-wider`}>
           These cookies give us a picture of your interaction with our site and what types of content are interesting to you. All information these cookies
           collect is anonymous and aggregated. By disabling these cookies we will not be aware when you have visited our site, what will make monitoring
           of its performance not possible.
         </p> <br/>
 
-        <span className={`text-lg`}>PERSONALIZED MARKETING</span> <br/><br/>
+        <input onClick={() => setPersonCookies(!personCookies)} type="checkbox" checked={personCookies}/> <span className={`text-lg`}>PERSONALIZED MARKETING</span> <br/><br/>
         <p className={`tracking-wider`}>These cookies are used to provide ads by our advertising partners and other sites with marketing communications according to your interests. Our
           partners could build a profile of your interests and show you relevant adverts on other sites. They do not store directly your personal information,
           but are based on uniquely identifying your browser and internet device. To experience less ta</p>
