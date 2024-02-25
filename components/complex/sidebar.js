@@ -25,6 +25,8 @@ function Sidebar() {
       setCurrent("HOME")
     } else if (pathname === "/picsvids") {
       setCurrent("Pics & Vids")
+    } else if (pathname === "/soon") {
+      setCurrent("store")
     }
     else {
       setCurrent(pathname.replace('/',''))
