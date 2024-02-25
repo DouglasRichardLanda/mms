@@ -22,7 +22,7 @@ function Menubar(props) {
         <div className={`w-full flex flex-col justify-center items-center`}><img src="/logo1.png" alt="main logo of mms"/></div>
         <div className={`flex flex-col`}>
           <div className={`hidden lg:flex`}>
-            <Link href={`#`} className={`uppercase hover:text-red-800 duration-300 text-xl mr-2`}>Subscribe </Link>
+            <Link href={`/subscribe`} className={`uppercase hover:text-red-800 duration-300 text-xl mr-2`}>Subscribe </Link>
             <IoIosMail className={`w-7 h-7`} />
           </div>
           <img className={`hidden lg:block`} src="/logo23.png" alt=""/>

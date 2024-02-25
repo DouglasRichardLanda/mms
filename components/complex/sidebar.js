@@ -57,7 +57,7 @@ function Sidebar() {
             <Link href={'music'} className={`duration-300 hover:text-red-800 text-[40px] w-fit`} >Music</Link>
             <Link href={'picsvids'} className={`duration-300 hover:text-red-800 text-[40px] w-fit`} >Pics & Vids</Link>
             <Link href={'/soon'} className={`duration-300 hover:text-red-800 text-[40px] w-fit`} >Store</Link>
-            <Link href={'contact'} className={`lg:hidden duration-300 hover:text-red-800 text-[40px] w-fit`} >Contact</Link>
+            <Link href={'/subscribe'} className={`lg:hidden duration-300 hover:text-red-800 text-[40px] w-fit`} >Subscribe</Link>
           </div>
           <div ref={menu2Ref} className={cn(`lg:hidden flex duration-300 gap-4 mt-5`, open === true ? `opacity-1 visible` : `opacity-0 invisible `)}>
             <Link href={``}><FaFacebook className={`w-7 h-7 hover:text-red-800 duration-300 hover:scale-125`} /></Link>
