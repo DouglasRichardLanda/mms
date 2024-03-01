@@ -10,6 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Mad Mans Spirit',
   description: 'Rock music',
+  facebookDomainVerification: 'gzrzv0tsel1uzzf62g8sy463pq1byr'
 }
 
 export default function RootLayout({ children }) {
@@ -17,7 +18,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <Head>
         <meta name="facebook-domain-verification" content="gzrzv0tsel1uzzf62g8sy463pq1byr" />
-        {/* Other meta tags, title, etc. */}
       </Head>
       <body className={cn(inter.className, `flex flex-col justify-between overflow-x-hidden`)}>
         <NavBar />
