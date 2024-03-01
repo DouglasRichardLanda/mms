@@ -14,7 +14,7 @@ function Menubar(props) {
             <Link href={`https://www.facebook.com/profile.php?id=61557123352501`}><FaFacebook className={styleel1} /></Link>
             <Link href={``}><FaXTwitter className={styleel1} /></Link>
             <Link href={``}><FaInstagram className={styleel1} /></Link>
-            <Link href={``}><FaYoutube className={styleel1} /></Link>
+            <Link href={`https://www.youtube.com/channel/UCqWZpGmXXUd23ML3pfSH4pg`}><FaYoutube className={styleel1} /></Link>
             <Link href={``}><FaSpotify className={styleel1} /></Link>
             <Link href={``}><FaApple className={styleel1} /></Link>
             <Link href={``}><FaTiktok className={styleel1} /></Link>

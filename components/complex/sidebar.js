@@ -62,7 +62,7 @@ function Sidebar() {
             <Link href={`https://www.facebook.com/profile.php?id=61557123352501`}><FaFacebook className={styleel2} /></Link>
             <Link href={``}><FaXTwitter className={styleel2} /></Link>
             <Link href={``}><FaInstagram className={styleel2} /></Link>
-            <Link href={``}><FaYoutube className={styleel2} /></Link>
+            <Link href={`https://www.youtube.com/channel/UCqWZpGmXXUd23ML3pfSH4pg`}><FaYoutube className={styleel2} /></Link>
             <Link href={``}><FaSpotify className={styleel2} /></Link>
             <Link href={``}><FaApple className={styleel2} /></Link>
             <Link href={``}><FaTiktok className={styleel2} /></Link>
