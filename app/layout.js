@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Mad Mans Spirit',
   description: 'Rock music',
-  // facebookDomainVerification: 'gzrzv0tsel1uzzf62g8sy463pq1byr'
+  'facebook-domain-verification': 'gzrzv0tsel1uzzf62g8sy463pq1byr'
 }
 
 export default function RootLayout({ children }) {
