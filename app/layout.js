@@ -2,6 +2,8 @@ import '../styles/globals.css'
 import { Inter } from 'next/font/google'
 import {NavBar, SideBar, Cookies, Bottomline} from "@/components/index";
 import {cn} from "@/lib/utils";
+import Head from 'next/head';
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,6 +15,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <meta name="facebook-domain-verification" content="gzrzv0tsel1uzzf62g8sy463pq1byr" />
+        {/* Other meta tags, title, etc. */}
+      </Head>
       <body className={cn(inter.className, `flex flex-col justify-between overflow-x-hidden`)}>
         <NavBar />
         <SideBar />
