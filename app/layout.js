@@ -4,7 +4,6 @@ import {NavBar, SideBar, Cookies, Bottomline} from "@/components/index";
 import {cn} from "@/lib/utils";
 import Head from 'next/head';
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {

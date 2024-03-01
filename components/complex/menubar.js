@@ -11,7 +11,7 @@ function Menubar(props) {
       <nav className={`flex mt-5 w-full justify-between items-center`}>
         <div className={`flex flex-col`}>
           <div className={`hidden lg:flex gap-1 ml-5 relative z-10`}>
-            <Link href={``}><FaFacebook className={styleel1} /></Link>
+            <Link href={`https://www.facebook.com/profile.php?id=61557123352501`}><FaFacebook className={styleel1} /></Link>
             <Link href={``}><FaXTwitter className={styleel1} /></Link>
             <Link href={``}><FaInstagram className={styleel1} /></Link>
             <Link href={``}><FaYoutube className={styleel1} /></Link>
