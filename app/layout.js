@@ -10,15 +10,15 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'Mad Mans Spirit',
   description: 'Rock music',
-  facebookDomainVerification: 'gzrzv0tsel1uzzf62g8sy463pq1byr'
+  // facebookDomainVerification: 'gzrzv0tsel1uzzf62g8sy463pq1byr'
 }
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <meta name="facebook-domain-verification" content="gzrzv0tsel1uzzf62g8sy463pq1byr" />
-      </Head>
+      {/*<Head>*/}
+      {/*  <meta name="facebook-domain-verification" content="gzrzv0tsel1uzzf62g8sy463pq1byr" />*/}
+      {/*</Head>*/}
       <body className={cn(inter.className, `flex flex-col justify-between overflow-x-hidden`)}>
         <NavBar />
         <SideBar />
