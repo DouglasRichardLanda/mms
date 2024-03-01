@@ -59,7 +59,7 @@ function Sidebar() {
             <Link href={'/subscribe'} className={cn(styleel1, `lg:hidden`)} >Subscribe</Link>
           </div>
           <div ref={menu2Ref} className={cn(`lg:hidden flex duration-300 gap-4 mt-5`, open === true ? `opacity-1 visible` : `opacity-0 invisible `)}>
-            <Link href={``}><FaFacebook className={styleel2} /></Link>
+            <Link href={`https://www.facebook.com/profile.php?id=61557123352501`}><FaFacebook className={styleel2} /></Link>
             <Link href={``}><FaXTwitter className={styleel2} /></Link>
             <Link href={``}><FaInstagram className={styleel2} /></Link>
             <Link href={``}><FaYoutube className={styleel2} /></Link>
