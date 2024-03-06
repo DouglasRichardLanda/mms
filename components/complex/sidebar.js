@@ -52,20 +52,20 @@ function Sidebar() {
         <div className={cn(`mt-5 duration-300`, open === true ? ` opacity-1`: `hidden opacity-0`)}>
           <div ref={menuRef} className={cn('flex flex-col relative duration-300 gap-4 w-fit', open === true ? `opacity-1 visible` : `opacity-0 invisible`)}>
             <Link href={'/'} className={styleel1} >Home</Link>
-            <Link href={'news'} className={styleel1} >News</Link>
-            <Link href={'music'} className={styleel1} >Music</Link>
-            <Link href={'picsvids'} className={styleel1} >Pics & Vids</Link>
+            <Link href={'/news'} className={styleel1} >News</Link>
+            <Link href={'/music'} className={styleel1} >Music</Link>
+            <Link href={'/picsvids'} className={styleel1} >Pics & Vids</Link>
             <Link href={'/soon'} className={styleel1} >Store</Link>
             <Link href={'/subscribe'} className={cn(styleel1, `lg:hidden`)} >Subscribe</Link>
           </div>
           <div ref={menu2Ref} className={cn(`lg:hidden flex duration-300 gap-4 mt-5`, open === true ? `opacity-1 visible` : `opacity-0 invisible `)}>
             <Link href={`https://www.facebook.com/profile.php?id=61557123352501`}><FaFacebook className={styleel2} /></Link>
-            <Link href={``}><FaXTwitter className={styleel2} /></Link>
-            <Link href={``}><FaInstagram className={styleel2} /></Link>
+            <Link href={`https://twitter.com/MadMansSpirit`}><FaXTwitter className={styleel2} /></Link>
+            <Link href={`https://www.instagram.com/madmansspiritofficial/`}><FaInstagram className={styleel2} /></Link>
             <Link href={`https://www.youtube.com/channel/UCqWZpGmXXUd23ML3pfSH4pg`}><FaYoutube className={styleel2} /></Link>
             <Link href={``}><FaSpotify className={styleel2} /></Link>
             <Link href={``}><FaApple className={styleel2} /></Link>
-            <Link href={``}><FaTiktok className={styleel2} /></Link>
+            <Link href={`https://www.tiktok.com/@mad.mans.spirit`}><FaTiktok className={styleel2} /></Link>
           </div>
         </div>
       </div>

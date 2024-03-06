@@ -12,12 +12,12 @@ function Menubar(props) {
         <div className={`flex flex-col`}>
           <div className={`hidden lg:flex gap-1 ml-5 relative z-10`}>
             <Link href={`https://www.facebook.com/profile.php?id=61557123352501`}><FaFacebook className={styleel1} /></Link>
-            <Link href={``}><FaXTwitter className={styleel1} /></Link>
-            <Link href={``}><FaInstagram className={styleel1} /></Link>
+            <Link href={`https://twitter.com/MadMansSpirit`}><FaXTwitter className={styleel1} /></Link>
+            <Link href={`https://www.instagram.com/madmansspiritofficial/`}><FaInstagram className={styleel1} /></Link>
             <Link href={`https://www.youtube.com/channel/UCqWZpGmXXUd23ML3pfSH4pg`}><FaYoutube className={styleel1} /></Link>
             <Link href={``}><FaSpotify className={styleel1} /></Link>
             <Link href={``}><FaApple className={styleel1} /></Link>
-            <Link href={``}><FaTiktok className={styleel1} /></Link>
+            <Link href={`https://www.tiktok.com/@mad.mans.spirit`}><FaTiktok className={styleel1} /></Link>
           </div>
           <img className={`hidden lg:block`} src="/logo2.png" alt=""/>
         </div>
