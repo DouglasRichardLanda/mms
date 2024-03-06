@@ -13,7 +13,7 @@ function Page(props) {
         pictures!
       </p>
       <p>
-        We are very glad for having the opportunity to work with Grammy winners and grateful to Tom Lord-Aldge
+        We are very glad for having the opportunity to work with Grammy winners and grateful to Tom Lord-Alge
         for the unbelievable mix and Ted Jensen from Sterling Sound for great mastering of our sound!
       </p>
       <p>
