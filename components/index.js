@@ -1,6 +1,0 @@
-export {default as NavBar} from "./complex/menubar"
-export {default as Cookies} from "./complex/cookies"
-export {default as SideBar} from "./complex/sidebar"
-export {default as Bottomline} from "./complex/bottomline"
-export {default as Album} from "./complex/album"
-export {default as Video} from "./complex/video"

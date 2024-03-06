@@ -1,6 +1,9 @@
 import '../styles/globals.css'
 import { Inter } from 'next/font/google'
-import {NavBar, SideBar, Cookies, Bottomline} from "@/components/index";
+import Menubar from "./_components/menubar";
+import Bottomline from "./_components/bottomline"
+import Cookies from "./_components/cookies"
+import Sidebar from "./_components/sidebar"
 import {cn} from "@/lib/utils";
 import Head from 'next/head';
 
@@ -18,8 +21,8 @@ export default function RootLayout({ children }) {
         <meta name="facebook-domain-verification" content="gzrzv0tsel1uzzf62g8sy463pq1byr" />
       </Head>
       <body className={cn(inter.className, `flex flex-col justify-between overflow-x-hidden`)}>
-        <NavBar />
-        <SideBar />
+        <Menubar />
+        <Sidebar />
         <div className={`mt-16 mx-5 lg:mx-32 xl:mx-40`}>
           {children}
         </div>

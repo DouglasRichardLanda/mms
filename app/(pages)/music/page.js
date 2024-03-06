@@ -1,5 +1,5 @@
 import React from 'react';
-import {Album} from "@/components/index"
+import Album from "./_components/album"
 
 function Page(props) {
   return (

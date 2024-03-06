@@ -1,5 +1,6 @@
 import React from 'react';
-import {Video} from "@/components/index";
+import Video from "./_components/video"
+
 
 function Page(props) {
   return (
