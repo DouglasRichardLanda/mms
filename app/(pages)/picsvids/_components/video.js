@@ -5,11 +5,29 @@ import {cn} from "@/lib/utils";
 
 function Video(props) {
   const [open, setOpen] = React.useState(false)
+  const [w, setW] = React.useState(null)
   const videoRef = useRef();
   const player = () => {
     setOpen(!open)
   }
+  useEffect(() => {
+    const updateWidth = () => {
+      setW(window.innerWidth);
+    };
 
+    // Check if window is defined (to prevent server-side rendering issues)
+    if (typeof window !== 'undefined') {
+      // Add event listener to update width when window is resized
+      window.addEventListener('resize', updateWidth);
+      // Initial width update
+      updateWidth();
+
+      // Cleanup function to remove event listener
+      return () => {
+        window.removeEventListener('resize', updateWidth);
+      };
+    }
+  }, []);
   useEffect(() => {
     let handler = (e) => {
       if(!videoRef.current?.contains(e.target)) {
@@ -31,7 +49,7 @@ function Video(props) {
       </div>
       <div className={cn(`absolute h-fill left-0 right-0 bottom-[20%] bg-black/50 justify-center items-center flex-col hidden`, open === true ? "flex" : "hidden")}>
         <p className={``}></p>
-        <VideoPlayer ref={videoRef} w={window.innerWidth > 600 ? 560 : 300} />
+        <VideoPlayer ref={videoRef} w={w > 600 ? 560 : 300} />
       </div>
     </div>
   );
