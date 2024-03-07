@@ -40,11 +40,12 @@ function Video(props) {
     <div className={`flex`}>
       <div className={` w-[350px] h-[300px] flex flex-col justify-center items-center bg-black group`}>
         <div className={`h-[80%] flex justify-center items-center relative`}>
-          <img className={`w-full h-full object-cover`} src="/debut/pitbul.png" alt=""/>
+          <img className={`w-full h-full object-cover`} src="/PitBullThumbnail.jpg" alt=""/>
+          {/*<iframe className={props.className} width={props.w} height="315" src="https://www.youtube.com/embed/CUuR9S7xriY?si=S6Bk1sfKj_HaWC2m" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>*/}
           <FaPlayCircle onClick={player} className={`absolute top-[40%] left-[40%] w-10 h-10  cursor-pointer group-hover:scale-150 duration-300 group-hover:text-red-800`}/>
         </div>
         <div className={`h-[20%] flex justify-center items-center bg-red-900 w-full tracking-wider text-xl`}>
-          Pitbull (Official Video)
+          Pit Bull (Official AI Lyric Video)
         </div>
       </div>
       <div className={cn(`absolute h-fill left-0 right-0 bottom-[20%] bg-black/50 justify-center items-center flex-col hidden`, open === true ? "flex" : "hidden")}>
