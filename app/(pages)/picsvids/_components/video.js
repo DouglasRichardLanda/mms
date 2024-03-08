@@ -1,65 +1,79 @@
 'use client'
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect} from 'react';
 import {FaPlayCircle} from "react-icons/fa";
+// import VideoPlayer from "@/app/(pages)/picsvids/_components/video-player";
+import ReactPlayer from "react-player/lazy";
 import {cn} from "@/lib/utils";
+import create from 'zustand';
+
+
+export const useSharedState = create(set => ({
+  playing: false,
+  play: () => set(state => ({playing: true})),
+  stopPlay: () => set(state => ({playing: false})),
+}));
 
 function Video(props) {
-  const [open, setOpen] = React.useState(false)
+  const {stopPlay, playing} = useSharedState();
+  const ref = React.useRef()
   const [w, setW] = React.useState(null)
-  const videoRef = useRef();
-  const player = () => {
-    setOpen(!open)
-  }
   useEffect(() => {
-    const updateWidth = () => {
-      setW(window.innerWidth);
-    };
-
-    // Check if window is defined (to prevent server-side rendering issues)
-    if (typeof window !== 'undefined') {
-      // Add event listener to update width when window is resized
-      window.addEventListener('resize', updateWidth);
-      // Initial width update
-      updateWidth();
-
-      // Cleanup function to remove event listener
-      return () => {
-        window.removeEventListener('resize', updateWidth);
-      };
-    }
-  }, []);
-  useEffect(() => {
+    setW(window.screen.width)
     let handler = (e) => {
-      if(!videoRef.current?.contains(e.target)) {
+      if (!ref.current?.contains(e.target)) {
         setOpen(false)
+        stopPlay()
       }
     }
     document.addEventListener("mousedown", handler)
   }, []);
+  const [open, setOpen] = React.useState(false)
+  const path = props.path;
   return (
-    <div className={`flex`}>
-      <div className={` w-[350px] h-[300px] flex flex-col justify-center items-center bg-black group`}>
-        <div className={`h-[80%] flex justify-center items-center relative`}>
-          <img className={`w-full h-full object-cover`} src="/PitBullThumbnail.jpg" alt=""/>
-          {/*<iframe className={props.className} width={props.w} height="315" src="https://www.youtube.com/embed/CUuR9S7xriY?si=S6Bk1sfKj_HaWC2m" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>*/}
-          <FaPlayCircle onClick={player} className={`absolute top-[40%] left-[40%] w-10 h-10  cursor-pointer group-hover:scale-150 duration-300 group-hover:text-red-800`}/>
-        </div>
-        <div className={`h-[20%] flex justify-center items-center bg-red-900 w-full tracking-wider text-xl`}>
-          Pit Bull (Official AI Lyric Video)
+    <>
+      <button onClick={() => setOpen(true)} className={` w-[350px] h-[350px] group relative`}>
+        <img className={`w-full h-full object-cover relative`} src="/PitBullThumbnail.jpg" alt=""/>
+        <FaPlayCircle
+          className={` absolute top-[35%] left-[40%] w-20 h-20 group-hover:scale-150 group-hover:text-red-800 duration-300`}/>
+        <p className={`bg-red-800`}>Pit Bull (Official AI Lyric Video)</p>
+      </button>
+      <div
+        className={cn(open === true ? 'flex' : 'hidden', "bg-black/70 top-0 left-0 w-full h-full fixed justify-center items-center")}>
+        <div ref={ref} className={`relative z-[1000]`}>
+          <VideoPlayer path={path} className={``} width={w < 650 ? 300 : 650}/>
         </div>
       </div>
-      <div className={cn(`absolute h-fill left-0 right-0 bottom-[20%] bg-black/50 justify-center items-center flex-col hidden`, open === true ? "flex" : "hidden")}>
-        <p className={``}></p>
-        <VideoPlayer ref={videoRef} w={w > 600 ? 560 : 300} />
-      </div>
-    </div>
+    </>
   );
 }
 
 export default Video;
 
-export function VideoPlayer (props) {
-  return (
-    <iframe className={props.className} width={props.w} height="315" src="https://www.youtube.com/embed/CUuR9S7xriY?si=S6Bk1sfKj_HaWC2m" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-  )
+export function VideoPlayer(props) {
+
+  const {playing, play} = useSharedState()
+  const [ready, setReady] = React.useState(false)
+  useEffect(() => {
+    setReady(true)
+  }, []);
+
+  if (!ready) {
+    return (
+      <div>
+        Loading////
+      </div>
+    )
+  } else {
+    return (
+      <ReactPlayer
+        onStart={() => play()}
+        onPlay={() => play()}
+        playing={playing !== false}
+        controls={true}
+        url={props.path}
+        className={cn(props.className)}
+        width={props.width}
+      />
+    )
+  }
 }
