@@ -5,9 +5,10 @@
   "scripts": {
     "deploy": "npm run build && rsync --exclude=.git -azP . ubuntu@18.157.220.180:/home/ubuntu/apps/mms",
     "dev": "next dev",
-    "build": "next build && prisma generate",
+    "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@prisma/client": "^5.11.0",
