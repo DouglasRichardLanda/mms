@@ -5,7 +5,7 @@
   "scripts": {
     "deploy": "npm run build && rsync --exclude=.git -azP . ubuntu@18.157.220.180:/home/ubuntu/apps/mms",
     "dev": "next dev",
-    "build": "prisma db push && next build",
+    "build": "prisma db push -y && next build",
     "start": "next start",
     "lint": "next lint",
     "postinstall": "prisma generate"
