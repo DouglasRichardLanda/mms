@@ -13,6 +13,7 @@
   "dependencies": {
     "@prisma/client": "^5.11.0",
     "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-toast": "^1.1.5",
     "autoprefixer": "10.4.17",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
