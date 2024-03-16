@@ -6,6 +6,7 @@ import Cookies from "./_components/cookies"
 import Sidebar from "./_components/sidebar"
 import {cn} from "@/lib/utils";
 import Head from 'next/head';
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         </div>
         <Cookies />
         <Bottomline />
+        <Toaster />
       </body>
     </html>
   )
