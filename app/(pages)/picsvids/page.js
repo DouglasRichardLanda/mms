@@ -7,7 +7,7 @@ function Page(props) {
   return (
     <>
       <div className={`flex flex-wrap gap-16`}>
-        <Video path={`https://www.youtube.com/watch/CUuR9S7xriY?si=S6Bk1sfKj_HaWC2m`} />
+        <Video path={`https://www.youtube.com/watch?v=oEy0441CHFY`} />
       </div>
     </>
   );

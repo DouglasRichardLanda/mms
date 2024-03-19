@@ -18,8 +18,8 @@ function Menubar(props) {
             <Link href={`https://www.instagram.com/madmansspiritofficial/`}><FaInstagram className={styleel1}/></Link>
             <Link href={`https://www.youtube.com/channel/UCqWZpGmXXUd23ML3pfSH4pg`}><FaYoutube
               className={styleel1}/></Link>
-            <Link href={``}><FaSpotify className={styleel1}/></Link>
-            <Link href={``}><FaApple className={styleel1}/></Link>
+            <Link href={`https://open.spotify.com/intl-de/artist/0xnJ8yCRbsEhQBaCNkTAFC`}><FaSpotify className={styleel1}/></Link>
+            <Link href={`https://music.apple.com/us/artist/mad-mans-spirit/1734707689`}><FaApple className={styleel1}/></Link>
             <Link href={`https://www.tiktok.com/@mad.mans.spirit`}><FaTiktok className={styleel1}/></Link>
           </div>
           <img className={`hidden lg:block`} src="/logo2.png" alt=""/>

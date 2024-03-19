@@ -4,7 +4,7 @@ import {FaPlayCircle} from "react-icons/fa";
 // import VideoPlayer from "@/app/(pages)/picsvids/_components/video-player";
 import ReactPlayer from "react-player/lazy";
 import {cn} from "@/lib/utils";
-import create from 'zustand';
+import {create} from 'zustand';
 
 
 export const useSharedState = create(set => ({
