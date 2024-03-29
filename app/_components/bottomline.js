@@ -31,7 +31,7 @@ function Bottomline() {
 
   return (
     <div className={``}>
-      <div className={`fixed bottom-0 bg-black w-full pl-5 text-xs text-gray-400`}>© <span className={`cursor-not-allowed`}>MAD MANS SPIRIT. ALL RIGHTS RESERVED</span> - <span onClick={() => setTerms(true)} className={`cursor-help`}>TERMS & CONDITIONS</span> - <span onClick={() => setPolicy(true)} className={`cursor-help`}>PRIVACY POLICY</span> - <span> <Link href={`contact`}>CONTACT</Link></span></div>
+      <div className={`fixed bottom-0 bg-black w-full pl-5 text-xs text-gray-400`}>© <span className={`cursor-not-allowed`}>MAD MANS SPIRIT. ALL RIGHTS RESERVED</span> - <span onClick={() => setTerms(true)} className={`cursor-help`}>TERMS & CONDITIONS</span> - <span onClick={() => setPolicy(true)} className={`cursor-help`}>PRIVACY POLICY</span> - <span> <Link href={`contact`}>CONTACT</Link></span> <span> - <Link href={`/profile`}>PROFILE</Link></span></div>
 
       <div className={cn(`top-0 r-0 w-full h-full bg-black/80 z-50`, terms === false ? "hidden" : "absolute")}>
         <div className={`flex justify-center items-center h-full`}>
