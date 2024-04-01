@@ -17,7 +17,7 @@ export async function NewsCard (props) {
   const isAdmin = cookies().get("session")?.value || ''
 
   return (
-    <article className={cn(props.className, `rounded p-2 border-[1px]`)}>
+    <article className={cn(props.className, `rounded p-2 border-[1px] mb-5`)}>
       <div className={`flex justify-between`}>
         <h2 className={`text-3xl mb-5 tracking-wider`}>{props.title}</h2>
         {isAdmin !== '' ? <div>
@@ -41,11 +41,10 @@ export default async function Page(props) {
   const isAdmin = cookies().get("session")?.value || ''
 
   const news = await prisma.News.findMany()
-  console.log( news)
   return (
     <section className={`mb-24 flex flex-col gap-2`}>
 
-      {news.map((el, i) => (
+      {news.reverse().map((el, i) => (
         <NewsCard key={i} id={el.id} text={el.text} title={el.title} />
       ))}
 
