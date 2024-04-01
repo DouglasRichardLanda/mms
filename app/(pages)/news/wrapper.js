@@ -36,7 +36,7 @@ export default function Wrapper (props) {
   }
 
   return (
-    <div className={cn(`top-0 left-0 w-full h-full bg-black/80 z-30 flex justify-center items-center flex-col`, val === false ? 'hidden' : 'absolute')}>
+    <div className={cn(`top-0 left-0 w-full h-full bg-black/80 z-30 flex justify-center items-center flex-col`, val === false ? 'hidden' : 'fixed')}>
       <form
         onSubmit={(data) => isSubmitted(data)}
         className={`rounded flex flex-col gap-2 border-2 border-white p-5 w-2/3 h-[60vh] text-center`}
