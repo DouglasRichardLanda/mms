@@ -32,6 +32,7 @@ export default function Wrapper (props) {
       return
     }
     await action_news_add(formData)
+    setUnvisible()
   }
 
   return (
