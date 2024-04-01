@@ -2,7 +2,7 @@
 import {logoutaction} from "@/app/_actions/auth-action";
 
 
-export default async function Profile () {
+export default function Profile () {
 
   const logout = async () => {
     await logoutaction()
@@ -10,7 +10,7 @@ export default async function Profile () {
 
   return (
     <section>
-      from section
+      <p>Loged in and can be managed</p>
       <button onClick={logout} >Logout</button>
     </section>
   )

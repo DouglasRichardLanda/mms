@@ -23,3 +23,9 @@ model Admin {
   email    String
   password String
 }
+
+model News {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  text  String
+}

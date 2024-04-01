@@ -1,13 +1,29 @@
 import React from 'react';
 import {cn} from "@/lib/utils";
+import {cookies} from "next/headers";
+import Toolbar from "@/app/_components/toolbar";
+import {action_news_add, action_news_delete} from "./actions-news";
+import Btn from "@/app/(pages)/news/btn";
+import {useNewsStore} from "@/_store/news"
+import Wrapper from "@/app/(pages)/news/wrapper";
+import prisma from "@/prisma/prismaconnect";
 
-export function NewsCard (props) {
+export async function NewsCard (props) {
 
   const formatedText = props.text;
   const parts = formatedText.toString().split('\n')
+
+  cookies();
+  const isAdmin = cookies().get("session")?.value || ''
+
   return (
-    <article className={cn(props.className, `text-black bg-white rounded p-2`)}>
-      <h2 className={`text-3xl mb-5 tracking-wider`}>{props.title}</h2>
+    <article className={cn(props.className, `rounded p-2 border-[1px]`)}>
+      <div className={`flex justify-between`}>
+        <h2 className={`text-3xl mb-5 tracking-wider`}>{props.title}</h2>
+        {isAdmin !== '' ? <div>
+          <Btn fn={action_news_delete} id={props.id} className={`hover:text-red-500 duration-200`} />
+        </div> : null}
+      </div>
       {parts.map((el, i) => {
         return (
           <p key={i} className={`tracking-wider mb-2`}>
@@ -15,49 +31,26 @@ export function NewsCard (props) {
           </p>
         )
       })}
-
     </article>
   )
 }
 
-function Page(props) {
+export default async function Page(props) {
+
+  cookies();
+  const isAdmin = cookies().get("session")?.value || ''
+
+  const news = await prisma.News.findMany()
+  console.log( news)
   return (
-    <section className={`mb-24`}>
-      <NewsCard
-        title={`7 March 2023`}
-        text={`Hurrah! After long lasting hard work we - Mad Man’s Spirit celebrate our online debut! To all lovers of rock, punk rock and simply music - be prepared for delicious sounding music, that we have recorded specially for you!
-        Huge thanks to all, who supported us and collaborated with us in creation of tones and notes, sounds and pictures!
-        We are very glad for having the opportunity to work with Grammy winners and grateful to Tom Lord-Alge for the unbelievable mix and Ted Jensen from Sterling Sound for great mastering of our sound! Today, dear rock and punk rock fans, we present to you our first song from the single, with total three tracks, called – “Pit Bull”!
-        The video is out! It was made with help of AI. Its imperfection gives a kind of artistic touch to the pictures you will see! We had a lot of fun making it for you! So enjoy!
-        Wanna some more? Stay tuned! The next surprises are already on their way!
-        `}
-      />
+    <section className={`mb-24 flex flex-col gap-2`}>
+
+      {news.map((el, i) => (
+        <NewsCard key={i} id={el.id} text={el.text} title={el.title} />
+      ))}
+
+      {isAdmin !== '' ? <Toolbar fn={'news'} /> : null}
+      <Wrapper />
     </section>
-    // <div className={`h-full flex flex-col gap-4 bg-white rounded text-black p-4 tracking-wider shadow-md shadow-white text-lg`}>
-    //   <h1 className={`text-3xl`}>7 March 2024</h1>
-    //   <p>Hurrah! After long lasting hard work we - Mad Man’s Spirit celebrate our online debut! To all lovers of rock,
-    //     punk rock and simply music - be prepared for delicious sounding music, that we have recorded specially for
-    //     you!
-    //   </p>
-    //   <p>
-    //     Huge thanks to all, who supported us and collaborated with us in creation of tones and notes, sounds and
-    //     pictures!
-    //   </p>
-    //   <p>
-    //     We are very glad for having the opportunity to work with Grammy winners and grateful to Tom Lord-Alge
-    //     for the unbelievable mix and Ted Jensen from Sterling Sound for great mastering of our sound!
-    //   </p>
-    //   <p>
-    //     Today, dear rock and punk rock fans, we present to you our first song from the single, with total three tracks,
-    //     called – “Pit Bull”!
-    //     The video is out! It was made with help of AI. Its imperfection gives a kind of artistic touch to the pictures
-    //     you will see! We had a lot of fun making it for you! So enjoy!
-    //   </p>
-    //   <p>
-    //     Wanna some more? Stay tuned! The next surprises are already on their way!
-    //   </p>
-    // </div>
   );
 }
-
-export default Page;

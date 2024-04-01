@@ -18,9 +18,11 @@ export async function loginaction (data) {
   if(credentials.password !== admin.password) {
     return null
   }
-  const token = await jwt.sign(admin, process.env.JWT_KEY, {expiresIn: "1d"})
+  const expirationTime = new Date(Date.now() + 60 * 60 * 1000);
+  const token = await jwt.sign(admin, process.env.JWT_KEY, {expiresIn: "1h"})
   cookies().set('session', token, {
     httpOnly: true,
+    expires: expirationTime,
   })
   redirect('/profile')
 }
