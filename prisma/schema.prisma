@@ -29,3 +29,20 @@ model News {
   title String
   text  String
 }
+
+model Album {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  albumcover String
+  songs      Song[]
+}
+
+model Song {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  name    String
+  spotify String
+  apple   String
+  amazon  String
+  album   Album?  @relation(fields: [albumId], references: [id])
+  albumId String? @db.ObjectId
+}

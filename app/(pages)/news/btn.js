@@ -2,7 +2,7 @@
 
 import {MdDelete} from "react-icons/md";
 import React from "react";
-import {useNewsStore} from "@/_store/news";
+import {useNewsStore} from "@/_store/states";
 
 export default function Btn (props) {
 

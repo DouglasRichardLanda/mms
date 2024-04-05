@@ -1,10 +1,11 @@
+
 import React from 'react';
 import {cn} from "@/lib/utils";
 import {cookies} from "next/headers";
-import Toolbar from "@/app/_components/toolbar";
+import ToolbarNews from "@/app/(pages)/news/toolbar-news";
 import {action_news_add, action_news_delete} from "./actions-news";
 import Btn from "@/app/(pages)/news/btn";
-import {useNewsStore} from "@/_store/news"
+import {useNewsStore} from "@/_store/states"
 import Wrapper from "@/app/(pages)/news/wrapper";
 import prisma from "@/prisma/prismaconnect";
 
@@ -48,7 +49,7 @@ export default async function Page(props) {
         <NewsCard key={i} id={el.id} text={el.text} title={el.title} />
       ))}
 
-      {isAdmin !== '' ? <Toolbar fn={'news'} /> : null}
+      {isAdmin !== '' ? <ToolbarNews fn={'news'} /> : null}
       <Wrapper />
     </section>
   );
