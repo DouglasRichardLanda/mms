@@ -18,7 +18,7 @@ export async function action_music_add(data) {
 
 
   // const path = join(process.cwd(), 'public', 'albums', file.name);
-  const path = join('..','..', '/public', '/albums', file.name);
+  const path = join('albums', file.name);
   await writeFile(path, buffer);
 
   await prisma.Album.create({
