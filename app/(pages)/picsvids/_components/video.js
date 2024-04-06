@@ -1,19 +1,11 @@
 'use client'
 import React, {useEffect} from 'react';
 import {FaPlayCircle} from "react-icons/fa";
-// import VideoPlayer from "@/app/(pages)/picsvids/_components/video-player";
 import ReactPlayer from "react-player/lazy";
 import {cn} from "@/lib/utils";
-import {create} from 'zustand';
+import {useSharedState} from "@/_store/states";
 
-
-export const useSharedState = create(set => ({
-  playing: false,
-  play: () => set(state => ({playing: true})),
-  stopPlay: () => set(state => ({playing: false})),
-}));
-
-function Video(props) {
+export default function Video(props) {
   const {stopPlay, playing} = useSharedState();
   const ref = React.useRef()
   const [w, setW] = React.useState(null)
@@ -32,7 +24,7 @@ function Video(props) {
   return (
     <>
       <button onClick={() => setOpen(true)} className={` w-[350px] h-[350px] group relative`}>
-        <img className={`w-full h-full object-cover relative`} src="/PitBullThumbnail.jpg" alt=""/>
+        <img className={`w-full h-full object-cover relative`} src={props.picture} alt=""/>
         <FaPlayCircle
           className={` absolute top-[35%] left-[40%] w-20 h-20 group-hover:scale-150 group-hover:text-red-800 duration-300`}/>
         <p className={`bg-red-800`}>Pit Bull (Official AI Lyric Video)</p>
@@ -47,7 +39,6 @@ function Video(props) {
   );
 }
 
-export default Video;
 
 export function VideoPlayer(props) {
 
