@@ -2,10 +2,12 @@
 import prisma from "@/prisma/prismaconnect";
 import {join} from "path"
 import {writeFile} from "fs/promises"
+import { put } from "@vercel/blob";
 
 export async function action_music_add(data) {
   const file = data.get('file')
   const name = data.get('name')
+
   const bytes = await file.arrayBuffer()
   const buffer = Buffer.from(bytes)
 
@@ -18,8 +20,7 @@ export async function action_music_add(data) {
 
 
   // const path = join(process.cwd(), 'public', 'albums', file.name);
-  const path = join('albums', file.name);
-  await writeFile(path, buffer);
+  // await writeFile(path, buffer);
 
   await prisma.Album.create({
     data: {

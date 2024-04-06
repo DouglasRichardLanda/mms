@@ -9,15 +9,29 @@ export default function Wrapper (props) {
 
   const val = useMusicStore((state) => state.visible);
   const { setVisible, setUnvisible } = useMusicStore();
+
+  const inputFileRef = useRef(null);
+
   const isSubmitted = async (data) => {
     data.preventDefault()
-    const formData = new FormData(data.target)
-    if (formData.get('name') === '') {
-      setUnvisible()
-      return
-    }
-    await action_music_add(formData)
-    setUnvisible()
+
+    const file = inputFileRef.current.files[0];
+
+    const response = await fetch(
+      `/api/music?filename=${file.name}`,
+      {
+        method: 'POST',
+        body: file,
+      },
+    );
+
+    // const formData = new FormData(data.target)
+    // if (formData.get('name') === '') {
+    //   setUnvisible()
+    //   return
+    // }
+    // await action_music_add(formData)
+    // setUnvisible()
   }
 
   return (
@@ -29,7 +43,7 @@ export default function Wrapper (props) {
         <input type="text" name={'name'} className={`p-2 rounded text-black w-full`} placeholder={'Album name'}/>
         
         <div>
-          <input name={`file`} type="file"/>
+          <input name={`file`} type="file" ref={inputFileRef} />
         </div>
         
         <div className={`flex justify-around items-center`}>
