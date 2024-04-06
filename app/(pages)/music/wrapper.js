@@ -1,8 +1,9 @@
 'use client'
 import {cn} from "@/lib/utils";
 import {useMusicStore} from "@/_store/states";
-import {useEffect, useRef} from "react";
+import {useEffect, useRef, useState} from "react";
 import {action_music_add} from "./actions-music"
+import prisma from "@/prisma/prismaconnect";
 
 export default function Wrapper (props) {
   const ref = useRef()
@@ -11,14 +12,14 @@ export default function Wrapper (props) {
   const { setVisible, setUnvisible } = useMusicStore();
 
   const inputFileRef = useRef(null);
+  const [name, setName] = useState('')
 
   const isSubmitted = async (data) => {
     data.preventDefault()
-
     const file = inputFileRef.current.files[0];
 
     const response = await fetch(
-      `/api/music?filename=${file.name}`,
+      `/api/music?filename=${file.name}&name=${name}`,
       {
         method: 'POST',
         body: file,
@@ -31,7 +32,8 @@ export default function Wrapper (props) {
     //   return
     // }
     // await action_music_add(formData)
-    // setUnvisible()
+
+    setUnvisible()
   }
 
   return (
@@ -40,7 +42,7 @@ export default function Wrapper (props) {
         onSubmit={(data) => isSubmitted(data)}
         className={`rounded flex flex-col gap-2 border-2 border-white p-5 w-2/3 h-[30vh] justify-between text-center`}
       >
-        <input type="text" name={'name'} className={`p-2 rounded text-black w-full`} placeholder={'Album name'}/>
+        <input type="text" value={name} onChange={(e) => setName(e.target.value)} className={`p-2 rounded text-black w-full`} placeholder={'Album name'}/>
         
         <div>
           <input name={`file`} type="file" ref={inputFileRef} />
