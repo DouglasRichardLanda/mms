@@ -19,7 +19,7 @@ export default async function Album(props) {
   })
 
   return (
-    <div className={`flex bg-red-800/40 border-2 rounded p-2 md:w-[80%] justify-between sm:flex-row flex-col w-fit relative`}>
+    <div className={`flex bg-red-800/70 rounded p-2 md:w-[80%] justify-between sm:flex-row flex-col w-fit relative`}>
       <div className={`mb-5 sm:mb-0 sm:mr-5 `}>
         <img
           src={props.albumcover}

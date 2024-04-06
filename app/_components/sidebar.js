@@ -44,7 +44,7 @@ function Sidebar() {
     <>
       <div className={cn(`fixed top-0 w-full h-screen overflow-hidden duration-300`, open === true ? `bg-black/70 z-10`: `bg-black/0 -z-10`)}></div>
       <div className={cn(`fixed left-0 lg:mt-0 mt-5 px-5 w-fit z-30`, open === true ? `z-30`: `z-20`)}>
-        <div className={`flex bg-black border-[1px] rounded p-2`}>
+        <div className={`flex bg-black rounded p-2`}>
           <button className={``} ref={menu3Ref} onClick={() => {setOpen(!open)}}><HiOutlineMenu className={cn(`w-8 h-8 hover:text-red-800 duration-300 relative z-50`,open === true ? 'rotate-90': '')} /></button>
           <button><Link href={'/'} onClick={() => {setOpen(open = false)}}><FiHome className={cn('w-8 h-8 hover:text-red-800 duration-300 ml-5 relative z-50')} /></Link></button>
           <button className={'w-fit h-8 ml-5 uppercase text-3xl text-red-800'}>{current}</button>
