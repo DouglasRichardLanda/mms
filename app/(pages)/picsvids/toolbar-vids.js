@@ -1,12 +1,11 @@
 'use client'
 import {IoMdAddCircle} from "react-icons/io";
-import {useMusicStore} from "@/_store/states";
+import {useVidsStore} from "@/_store/states";
 
-export default function ToolbarMusic (props) {
+export default function ToolbarVids (props) {
 
-  const val = useMusicStore((state) => state.visible)
-  const { setVisible, setUnvisible } = useMusicStore();
-  console.log(val)
+  const val = useVidsStore((state) => state.visible)
+  const { setVisible, setUnvisible } = useVidsStore();
 
   return (
     <button

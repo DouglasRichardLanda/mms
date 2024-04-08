@@ -8,7 +8,7 @@ export async function POST(request) {
   const name = searchParams.get('name');
 
   // ⚠️ The below code is for App Router Route Handlers only
-  const blob = await put(filename, request.body, {
+  const blob = await put(`albums/${filename}`, request.body, {
     access: 'public',
   });
 

@@ -46,3 +46,10 @@ model Song {
   album   Album?  @relation(fields: [albumId], references: [id])
   albumId String? @db.ObjectId
 }
+
+model Vids {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  link  String
+  file  String
+}

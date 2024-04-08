@@ -18,6 +18,12 @@ export const useAlbumStore = create((set) => ({
   setUnvisible: () => set((state) => ({ visible: false }))
 }))
 
+export const useVidsStore = create((set) => ({
+  visible: false,
+  setVisible: () => set((state) => ({ visible: true })),
+  setUnvisible: () => set((state) => ({ visible: false }))
+}))
+
 export const useSharedState = create(set => ({
   playing: false,
   play: () => set(state => ({playing: true})),
