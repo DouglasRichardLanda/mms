@@ -33,7 +33,7 @@ function Bottomline() {
     <div className={``}>
       <div className={`fixed bottom-0 bg-black w-full pl-5 text-xs text-gray-400`}>© <span className={`cursor-not-allowed`}>MAD MANS SPIRIT. ALL RIGHTS RESERVED</span> - <span onClick={() => setTerms(true)} className={`cursor-help`}>TERMS & CONDITIONS</span> - <span onClick={() => setPolicy(true)} className={`cursor-help`}>PRIVACY POLICY</span> - <span> <Link href={`contact`}>CONTACT</Link></span> - <span> <Link href={`https://www.quitegreat.co.uk`}>PRESS</Link></span></div>
 
-      <div className={cn(`top-0 r-0 w-full h-full bg-black/80 z-50`, terms === false ? "hidden" : "absolute")}>
+      <div className={cn(`top-0 r-0 w-full h-full bg-black/80 z-50`, terms === false ? "hidden" : "fixed")}>
         <div className={`flex justify-center items-center h-full`}>
           <div ref={termsRef} className={` w-full lg:w-2/3 px-5 py-3 h-2/3 text-sm overflow-auto overflow-x-hidden bg-white text-black   mx-5`}>
             <div onClick={() => setTerms(!terms)} className={`float-end p-5`}><IoIosCloseCircle className={`fixed right-10 lg:right-[20%] w-7 h-7 hover:rotate-180 duration-300 cursor-pointer -mt-5`} /></div>
@@ -99,7 +99,7 @@ Except in jurisdictions where such provisions are restricted, in no event will m
         </div>
       </div>
 
-      <div className={cn(`top-0 r-0 w-full h-full bg-black/80 z-50`, policy === false ? "hidden" : "absolute")}>
+      <div className={cn(`top-0 r-0 w-full h-full bg-black/80 z-50`, policy === false ? "hidden" : "fixed")}>
         <div className={`flex justify-center items-center h-full`}>
           <div ref={policyRef} className={` w-full lg:w-2/3 px-5 py-3 h-2/3 text-sm overflow-auto overflow-x-hidden bg-white text-black mx-5`}>
             <div onClick={() => setPolicy(!policy)} className={`float-end p-5`}><IoIosCloseCircle className={`fixed text-black right-10 lg:right-[20%] w-7 h-7 hover:rotate-180 duration-300 cursor-pointer -mt-5`} /></div>
