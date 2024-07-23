@@ -24,7 +24,7 @@ export default async function Page(props) {
     <div className={`flex flex-col justify-center items-center w-full relative gap-2`}>
 
       {allAlbums.map((el, i) => (
-        <Album key={i} id={el.id} albumcover={images[i].url} />
+        <Album key={i} id={el.id} albumcover={images[2].url} />
       ))}
 
       {isAdmin !== '' ? <ToolbarMusic fn={'music'} /> : null}
