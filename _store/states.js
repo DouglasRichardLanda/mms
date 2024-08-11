@@ -12,6 +12,12 @@ export const useMusicStore = create((set) => ({
   setUnvisible: () => set((state) => ({ visible: false }))
 }))
 
+export const useNewsStoreEdit = create((set) => ({
+  visibleEdit: false,
+  setVisibleEdit: () => set((state) => ({ visibleEdit: true })),
+  setUnvisibleEdit: () => set((state) => ({ visibleEdit: false }))
+}))
+
 export const useAlbumStore = create((set) => ({
   visible: false,
   setVisible: () => set((state) => ({ visible: true })),
