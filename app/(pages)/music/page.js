@@ -12,8 +12,6 @@ export default async function Page(props) {
   const response = await list();
   const images = response.blobs.reverse()
 
-  console.log(response.blobs)
-
   cookies();
   const isAdmin = cookies().get("session")?.value || ''
 

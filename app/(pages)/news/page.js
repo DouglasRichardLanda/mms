@@ -62,7 +62,6 @@ export default async function Page(props) {
   const news = await prisma.News.findMany()
 
 
-
   return (
     <section className={`mb-24 flex flex-col gap-2`}>
 
