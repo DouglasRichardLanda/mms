@@ -6,7 +6,8 @@ import Btn from "./btn"
 import {cn} from "@/lib/utils";
 import WrapperAlbum from "@/app/(pages)/music/album-wrapper";
 import prisma from "@/prisma/prismaconnect";
-export const stylesel1 = `sm:mb-2 flex w-full justify-between items-center h-fit sm:flex-row`
+import Song from "@/app/(pages)/music/song";
+
 export default async function Album(props) {
 
   cookies();
@@ -17,70 +18,83 @@ export default async function Album(props) {
       albumId: props.id
     }
   })
-
   return (
-    <div className={`flex bg-red-800/70 rounded p-2 md:w-[80%] justify-between sm:flex-row flex-col w-fit relative`}>
-      <div className={`mb-5 sm:mb-0 sm:mr-5 `}>
+    <div className={`flex bg-red-800/70 rounded p-2 md:w-[70%] flex-col gap-5`}>
+      <div className={cn(isAdmin ? 'flex duration-200 group top-5 right-[20%] gap-5' : 'hidden')}>
+        <Btn className={cn(` px-5 py-2 bg-white text-black rounded shadow-md hover:bg-gray-200 duration-200`)} />
+        <button className={cn(` px-5 py-2 bg-gray-300 text-black rounded shadow-md hover:cursor-not-allowed`)}>Change picture</button>
+        <button className={cn(` px-5 py-2 bg-gray-300 text-black rounded shadow-md hover:cursor-not-allowed`)}>Add info</button>
+        <button className={cn(` px-5 py-2 bg-gray-300 text-black rounded shadow-md hover:cursor-not-allowed`)}>Delete album</button>
+        <WrapperAlbum id={props.id} />
+      </div>
+      <div className={`mb-5 sm:mb-0 sm:mr-5 flex flex-row gap-10`}>
         <img
           src={props.albumcover}
           alt="Picture of the entire album"
-          className={`sm:max-h-[200px] max-w-[320px] sm:w-auto h-auto text-center`}
+          className={`sm:max-h-[400px] max-w-[320px] sm:w-auto h-auto text-center`}
         />
+        {/*<p className={`text-3xl w-full`}>Album</p>*/}
       </div>
-      <div className={`w-full flex flex-col justify-center gap-2 self-center`}>
+      <div className={`mx-auto w-full`}>
         {songs.map((el, i) => (
           <Song
+            isAdmin={isAdmin}
             key={i}
+            songId={el.id}
             name={el.name}
             spotify={el.spotify}
             apple={el.apple}
             amazon={el.amazon}
             picture={el.picture}
+            lyric={el.lyric}
           />
         ))}
-        {/*<Song*/}
-        {/*  name={'Fallen angel'}*/}
-        {/*  spotify={`https://open.spotify.com/album/30M8PBi7bdWZnb3ZjYkrHV`}*/}
-        {/*  apple={`http://itunes.apple.com/album/id/1734924779`}*/}
-        {/*  amazon={`https://www.amazon.de/-/en/dp/B0CXJ1FD1D/ref=sr_1_7?__mk_de_DE=ÅMÅŽÕÑ&crid=23MLGXB77PMIM&dib=eyJ2IjoiMSJ9.mXVLIDe4kXCOZjh54tqJYtjfqGDrB270W55jUa9CHxPrBOFykzEiLyxbBPfDS1iP0wET0Go9L5zMy0WPo0IA6oOpc0lDYKXHDbYYknDzYZf4pcs8mbqt4Ql_dwNHC_iRiaFAZX04ylJlpS4VinxspVWq1lmtmszc1cXauC-FdM3SAJn3_LFfleldJZIrd__8ckIomrRsbiaQdjr2dZdwo6PyqORX2Qi5zX7qNTl5nqE.BLCjrZnDfd78kER4UbkDIs1Hnh42UhTRD67k1fjxzAI&dib_tag=se&keywords=Mad+Man%27s+Spirit&qid=1710861802&sprefix=mad+man%27s+spirit%2Caps%2C98&sr=8-7`}*/}
-        {/*  picture={`/debut/Dice1.png`}*/}
-        {/*/>*/}
-        {/*<Song*/}
-        {/*  name={`Lies`}*/}
-        {/*  picture={"/debut/Dice2.png"}*/}
-        {/*  spotify={'https://open.spotify.com/album/3YlQEWlh3oo1Fmr4CkdW6j'}*/}
-        {/*  apple={`http://itunes.apple.com/album/id/1734924319`}*/}
-        {/*  amazon={`https://www.amazon.de/-/en/dp/B0CXHWVHVT/ref=sr_1_5?__mk_de_DE=ÅMÅŽÕÑ&crid=23MLGXB77PMIM&dib=eyJ2IjoiMSJ9.mXVLIDe4kXCOZjh54tqJYtjfqGDrB270W55jUa9CHxPrBOFykzEiLyxbBPfDS1iP0wET0Go9L5zMy0WPo0IA6oOpc0lDYKXHDbYYknDzYZc6bzFDKJGx4cQNc11m-ilAQucqQ_uNUZadPQFq-RMYFyr9TZz9CZFLRD8LKvIW5IUzG6V34vGn7c0d0OPJSpxhMU1AQHLKOd5ojemNFLtuCXdIZaYiYYO7fRA1RFaMC7g.F6ZjJ08NcXZCENukaYl1CsNHfxBoaqyoGtyuOW_zbIo&dib_tag=se&keywords=Mad+Man%27s+Spirit&qid=1710862018&sprefix=mad+man%27s+spirit%2Caps%2C98&sr=8-5`}*/}
-        {/*/>*/}
-        {/*<Song*/}
-        {/*  picture={"/debut/Dice3.png"}*/}
-        {/*  name={`Pitbull`}*/}
-        {/*  spotify={`https://open.spotify.com/album/40cWXktPy9IUIOwk5Ik13j`}*/}
-        {/*  apple={`http://itunes.apple.com/album/id/1735682518`}*/}
-        {/*  amazon={`https://www.amazon.de/-/en/dp/B0CXXS77P2/ref=sr_1_10?__mk_de_DE=ÅMÅŽÕÑ&crid=23MLGXB77PMIM&dib=eyJ2IjoiMSJ9.mXVLIDe4kXCOZjh54tqJYtjfqGDrB270W55jUa9CHxPrBOFykzEiLyxbBPfDS1iP0wET0Go9L5zMy0WPo0IA6oOpc0lDYKXHDbYYknDzYZc6bzFDKJGx4cQNc11m-ilAOifF2OtOmf29cPLSaQWSwfU2xK75CEuvTsV7v-5dFZczG6V34vGn7c0d0OPJSpxhMU1AQHLKOd5ojemNFLtuCXdIZaYiYYO7fRA1RFaMC7g.u17llLSuf4cInPrSC5j3zZehikcUOUh3UqQZmkoIY2s&dib_tag=se&keywords=Mad+Man%27s+Spirit&qid=1710862148&sprefix=mad+man%27s+spirit%2Caps%2C98&sr=8-10`}*/}
-        {/*/>*/}
       </div>
-      <Btn className={cn(`hidden my-5 md:my-0`, isAdmin && 'flex fixed duration-200 group')} />
-      <WrapperAlbum id={props.id} />
     </div>
+
+    // <div className={`flex bg-red-800/70 rounded p-2 md:w-[70%] justify-between gap-5 flex-col w-fit relative`}>
+    //   <div className={`mb-5 sm:mb-0 sm:mr-5 `}>
+    //     <img
+    //       src={props.albumcover}
+    //       alt="Picture of the entire album"
+    //       className={`sm:max-h-[400px] max-w-[320px] sm:w-auto h-auto text-center`}
+    //     />
+    //   </div>
+    //   <div className={`w-full flex flex-col justify-center gap-2 self-center`}>
+    //     {songs.map((el, i) => (
+    //       <Song
+    //         key={i}
+    //         name={el.name}
+    //         spotify={el.spotify}
+    //         apple={el.apple}
+    //         amazon={el.amazon}
+    //         picture={el.picture}
+    //       />
+    //     ))}
+    //   </div>
+    //   <Btn className={cn(`hidden my-5 md:my-0`, isAdmin && 'flex fixed duration-200 group')} />
+    //   <WrapperAlbum id={props.id} />
+    // </div>
   );
 }
 
 
-export async function Song(props) {
-  return (
-    <div className={stylesel1}>
-      <div className={`flex gap-3 tracking-wider`}>
-        {props.picture && <img className={`w-8 h-8 object-cover`} src={props.picture} alt="Song's position in the album"/>}
-        <p className={`text-xl`}>{props.name}</p>
-      </div>
-      <div className={`flex gap-5`}>
-        <Link href={props.spotify}><FaSpotify className={`w-8 h-8 p-1`}/>
-        </Link> <Link href={props.apple}><FaApple className={`w-8 h-8 p-1`}/></Link>
-        <Link
-          href={props.amazon}><FaAmazon
-          className={`w-8 h-8 p-1`}/></Link>
-      </div>
-    </div>
-  )
-}
+// export async function Song(props) {
+//   return (
+//     <>
+//       <div className={stylesel1}>
+//         <div className={`flex gap-3 tracking-wider`}>
+//           {props.picture && <img className={`w-8 h-8 object-cover`} src={props.picture} alt="Song's position in the album"/>}
+//           <p className={`text-xl`}>{props.name}</p>
+//         </div>
+//         <div className={`flex gap-5`}>
+//           <Link href={props.spotify}><FaSpotify className={`w-8 h-8 p-1`}/>
+//           </Link> <Link href={props.apple}><FaApple className={`w-8 h-8 p-1`}/></Link>
+//           <Link
+//             href={props.amazon}><FaAmazon
+//             className={`w-8 h-8 p-1`}/></Link>
+//         </div>
+//       </div>
+//     </>
+//   )
+// }

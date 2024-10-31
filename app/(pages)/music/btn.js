@@ -12,7 +12,8 @@ export default function Btn (props) {
     <button
       onClick={setVisible}
       className={props.className}>
-      <IoMdAddCircle className={`w-7 h-7 text-white group-hover:text-green-700 duration-200`}/>
+      {/*<IoMdAddCircle className={`w-7 h-7 text-white group-hover:text-green-700 duration-200`}/>*/}
+      New song
     </button>
   )
 }

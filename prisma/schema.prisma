@@ -45,6 +45,7 @@ model Song {
   amazon  String
   album   Album?  @relation(fields: [albumId], references: [id])
   albumId String? @db.ObjectId
+  lyric   String?
 }
 
 model Vids {

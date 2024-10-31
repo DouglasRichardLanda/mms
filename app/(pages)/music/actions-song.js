@@ -17,3 +17,21 @@ export async function action_song_add(data) {
     }
   })
 }
+
+export async function action_song_update(data) {
+
+  await prisma.Song.update({
+    where: {
+      id: data[5]
+    },
+    data: {
+      name: data[0],
+      apple: data[1],
+      spotify: data[2],
+      amazon: data[3],
+      lyric: data[4]
+    }
+  })
+
+  return "success"
+}

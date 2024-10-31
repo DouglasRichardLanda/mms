@@ -10,8 +10,10 @@ export default function Profile () {
 
   return (
     <section>
-      <p>Loged in and can be managed</p>
-      <button onClick={logout} >Logout</button>
+      <p className={`text-4xl font-bold`}>Status:: Aktiv</p>
+      <button
+        className={`px-10 py-5 bg-red-700 mt-10 text-2xl hover:bg-red-900 duration-200`}
+        onClick={logout}>Logout</button>
     </section>
   )
 }
