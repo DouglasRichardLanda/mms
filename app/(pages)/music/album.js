@@ -19,7 +19,7 @@ export default async function Album(props) {
     }
   })
   return (
-    <div className={`flex bg-red-800/70 rounded p-2 md:w-[70%] flex-col gap-5`}>
+    <div className={`flex bg-red-800/70 rounded p-2 md:w-[70%] flex-col gap-5 w-[80%]`}>
       <div className={cn(isAdmin ? 'flex duration-200 group top-5 right-[20%] gap-5' : 'hidden')}>
         <Btn className={cn(` px-5 py-2 bg-white text-black rounded shadow-md hover:bg-gray-200 duration-200`)} />
         <button className={cn(` px-5 py-2 bg-gray-300 text-black rounded shadow-md hover:cursor-not-allowed`)}>Change picture</button>
@@ -31,7 +31,7 @@ export default async function Album(props) {
         <img
           src={props.albumcover}
           alt="Picture of the entire album"
-          className={`sm:max-h-[400px] max-w-[320px] sm:w-auto h-auto text-center`}
+          className={`sm:max-h-[400px] sm:max-w-[320px] w-auto h-auto text-center`}
         />
         {/*<p className={`text-3xl w-full`}>Album</p>*/}
       </div>

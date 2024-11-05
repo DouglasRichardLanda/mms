@@ -23,26 +23,24 @@ export default function Song(props) {
   const a = props.lyric.split("\\n")
   return (
     <>
-      <div onClick={() => setShow(prev => !prev)} className={stylesel1}>
-        <IoIosArrowDropdownCircle className={`absolute lg:left-10 text-2xl left-0`} />
+      <div onClick={() => setShow(prev => !prev)} className={"sm:mb-5 flex w-full justify-between items-center h-fit cursor-pointer sm:flex-row border-b-2 border-red-800 md:px-[10%] my-3 relative"}>
         {props.isAdmin && <button
           onClick={(e) => {
             e.stopPropagation()
             setShowWrapper(prev => !prev)
           }}
-          className={`absolute lg:right-5 text-2xl right-0 hover:text-red-800 duration-200 px-3 py-2`}>
+          className={`absolute lg:right-5 text-2xl -right-[50px] hover:text-red-800 duration-200 px-3 py-2`}>
           <FaEdit className={``} />
         </button>}
         <div className={`flex gap-3 tracking-wider`}>
           {props.picture && <img className={`w-8 h-8 object-cover`} src={props.picture} alt="Song's position in the album"/>}
-          <p className={`text-xl`}>{props.name}</p>
+          <IoIosArrowDropdownCircle className={`w-6 h-6 sm:h-8 sm:w-8 mr-2 sm:mr-5`} />
+          <p className={`text-lg sm:text-xl`}>{props.name}</p>
         </div>
-        <div className={`flex gap-5`}>
-          <Link href={props.spotify}><FaSpotify className={`w-8 h-8 p-1`}/>
-          </Link> <Link href={props.apple}><FaApple className={`w-8 h-8 p-1`}/></Link>
-          <Link
-            href={props.amazon}><FaAmazon
-            className={`w-8 h-8 p-1`}/></Link>
+        <div className={`flex gap-2 sm:gap-5`}>
+          <Link href={props.spotify}><FaSpotify className={`w-6 h-6 sm:w-8 sm:h-8 p-1`}/></Link>
+          <Link href={props.apple}><FaApple className={`w-6 h-6 sm:w-8 sm:h-8 p-1`}/></Link>
+          <Link href={props.amazon}><FaAmazon className={`w-6 h-6 sm:w-8 sm:h-8 p-1`}/></Link>
         </div>
       </div>
       <div className={cn(`md:w-[50%] w-[80%] mx-auto max-h-[400px] overflow-auto p-5 flex-col`, show ? "flex" : "hidden")}>
