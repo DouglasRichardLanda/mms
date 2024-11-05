@@ -45,7 +45,7 @@ export default function Song(props) {
       </div>
       <div className={cn(`md:w-[50%] w-[80%] mx-auto max-h-[400px] overflow-auto p-5 flex-col`, show ? "flex" : "hidden")}>
         {a.map((el, i) => {
-          return <p key={i} className={cn(el === " " ? "pb-5" : "")}>{el}</p>
+          return <pre key={i} className={cn(el === " " ? "pb-5" : "")}>{el}</pre>
         })}
       </div>
       <div className={cn(`top-0 left-0 w-full h-screen bg-black/80 z-[1000] fixed justify-center items-center`, showWrapper ? "flex" : "hidden")}>
@@ -62,7 +62,6 @@ export default function Song(props) {
             <input type="text" value={newAmazon} onChange={(e) => setNewAmazon(e.target.value)} className={`text-black p-2 w-full`}/>
             <p>Lyrics</p>
             <textarea value={newLyrics} onChange={(e) => setNewLyrics(e.target.value)} rows={10} className={`text-black p-2 w-full`} />
-            <p className={`text-gray-300 italic p-2`}>By editing your text use: \n for a new line, or \n\n to make a gap between lines</p>
           </div>
           <div className={`flex justify-between`}>
             <button
